@@ -43,15 +43,15 @@ exports.getTodos = async function(query, page, limit){
 //U
 exports.updateTodo = async function(todo){
 
-  const id = todo.id;
+  var id = todo.id;
 
   try{
-    const oldToDo = await ToDo.findById(id);
+    var oldToDo = await ToDo.findById(id);
   }catch(e){
       throw Error('Error occured when finding the ToDo');
   }
 
-  if(!oldTodo){
+  if(!oldToDo){
     return false;
   }
 
@@ -60,7 +60,7 @@ exports.updateTodo = async function(todo){
   oldToDo.status = todo.status;
 
   try{
-    const savedTodo = await oldToDo.save();
+    var savedTodo = await oldToDo.save();
     return savedTodo;
   }catch(e){
       throw Error('Error occured when updating the ToDo');
